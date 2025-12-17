@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📬 Contáctanos - Biblioteca Mágica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <style>
+         </style>
+</head>
+<body>
+    <div class="contact-section">
+        <h2>📬 Contáctanos</h2>
+        <p class="subtitle">¿Tienes sugerencias de libros? ¿Quieres unirte a nuestro club de lectura? ¡Escríbenos!</p>
+
+        <form id="contactForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+52 123 456 7890">
+                </div>
+
+                <div class="form-group">
+                    <label for="genero">Género favorito</label>
+                    <select id="genero" name="genero">
+                        <option value="">Selecciona un género</option>
+                        <option value="drama">🎭 Drama</option>
+                        <option value="aventura">🌟 Aventura</option>
+                        <option value="fantasia">🌈 Fantasía</option>
+                        <option value="arte">🎨 Arte</option>
+                        <option value="ciencia-ficcion">🚀 Ciencia Ficción</option>
+                        <option value="romance">💕 Romance</option>
+                        <option value="terror">👻 Terror</option>
+                        <option value="misterio">🔍 Misterio</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>¿Cómo prefieres leer? *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="fisico" name="formato" value="fisico">
+                            <label for="fisico">📖 Libros físicos</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="digital" name="formato" value="digital">
+                            <label for="digital">📱 E-books / Digital</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="audio" name="formato" value="audio">
+                            <label for="audio">🎧 Audiolibros</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="mensaje">Mensaje *</label>
+                    <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos qué libros te gustaría que agregáramos, tus sugerencias o cualquier comentario..."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="newsletter" name="newsletter" value="si">
+                        <label for="newsletter">📧 Deseo recibir recomendaciones de libros y novedades</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Enviar Mensaje 📨</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            
+            if (!nombre || !email || !mensaje) {
+                alert('⚠️ Por favor completa todos los campos obligatorios (*)');
+                return;
+            }
+            
+        
+            const formatosSeleccionados = document.querySelectorAll('input[name="formato"]:checked');
+            if (formatosSeleccionados.length === 0) {
+                alert('⚠️ Por favor selecciona al menos un formato de lectura');
+                return;
+            }
+            
+        
+            alert(`✅ ¡Gracias ${nombre}! Tu mensaje ha sido enviado correctamente.\n\nTe responderemos pronto a ${email}`);
+            
+        
+            this.reset();
+        });
+    </script>
+</body>
+</html>
